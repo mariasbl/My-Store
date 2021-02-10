@@ -1,0 +1,28 @@
+<h2>LOGIN</h2>
+
+<div class="display-flex-center mg-top-4rem">
+    <div class="container-login">
+        <div class="display-flex-center">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div>
+                <label for="email">
+                    Email
+                </label>
+                <input class="input" id="email" type="text" formControlName="email" />
+            </div>
+
+            <div>
+                <label for="password">
+                    Password
+                </label>
+                <input class="input" id="password" type="password" formControlName="password" />
+            </div>
+
+            <button class="button" type="submit" class="button fancy-button-yellow mg-top-1rem"><i
+                    class="material-icons">login</i>ENTRAR</button>
+
+        </form>
+        </div>
+    </div>
+</div>

@@ -1,16 +1,27 @@
-<h3>Cart</h3>
+<h2>CART</h2>
 
+<h3 *ngIf="items.length === 0" class="text-align-center">THE CART IS EMPTY.</h3>
+
+<div *ngFor="let item of items">
+
+  <app-cart-card
+    [item]="item"
+    [removeItem]="removeItem.bind(this)"
+  ></app-cart-card>
+ 
+</div>
+
+<div *ngIf="items.length > 0" class="display-flex-end mg-2rem">
+  <a class="button fancy-button-yellow mg-1rem"(click)="checkRouter()"><i
+    class="material-icons">navigate_next</i>NEXT STEP</a>
+</div>
+<!--
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.prince | currency }}</span>
-</div>
 
-<form [formGroup]="checkoutForm"
-(ngSubmit)="onSubmit()">
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
   <div>
     <label for="name">
@@ -28,4 +39,4 @@
 
   <button class="button" type="submit">Purchase</button>
 
-</form>
+</form>-->

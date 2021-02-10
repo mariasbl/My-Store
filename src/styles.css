@@ -1,7 +1,7 @@
 /* Global Styles */
 
 * {
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: dosis;
   color: #616161;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -74,10 +74,8 @@ label {
   display: inline-flex;
   align-items: center;
   padding: 8px 16px;
-  border-radius: 2px;
   font-size: 14px;
   cursor: pointer;
-  background-color: #1976d2;
   color: white;
   border: none;
 }
@@ -95,13 +93,21 @@ label {
 /* Fancy Button */
 
 .fancy-button {
-  background-color: white;
-  color: #1976d2;
+  background-color: #1dd9d9;
+  color: white;
 }
 
 .fancy-button i.material-icons {
-  color: #1976d2;
+  color: white;
   padding-right: 4px;
+}
+
+.fancy-button-yellow {
+  background-color: #fafa0b;
+  border: 2px solid #101010;
+  color: #101010;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 /* Top Bar */
@@ -109,7 +115,7 @@ label {
 app-top-bar {
   width: 100%;
   height: 68px;
-  background-color: #1976d2;
+  background-color: #1dd9d9;
   padding: 16px;
   display: flex;
   flex-direction: row;
@@ -117,14 +123,54 @@ app-top-bar {
   align-items: center;
 }
 
-app-top-bar h1 {
+app-top-bar h2 {
   color: white;
   margin: 0;
 }
 
+ h2 {
+  border: 2px solid#f90ff9;
+  padding: 10px;
+  box-shadow: 5px 10px #f90ff9;
+  color: #f90ff9;
+  font-weight: bold;
+  margin-top: 3rem !important;
+  margin: 2rem;
+}
+
+app-top-bar h2 {
+  border: 0px solid#f90ff9;
+  box-shadow: 0px 0px #f90ff9;
+  color: white;
+  font-weight: bold;
+  margin-top: 0rem !important;
+  margin: 0rem;
+}
+
+.h2-product-title {
+  border: 2px solid#1dd9d9;
+  box-shadow: 5px 10px#1dd9d9;
+  color: #1dd9d9;
+  font-weight: bold;
+  margin-top: 0rem !important;
+  margin: 0rem;
+}
+
+app-product-list hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #1dd9d9;
+}
+
 /* Checkout Cart, Shipping Prices */
 
-.cart-item, .shipping-item {
+.cart-item {
+  border: 2px solid#1dd9d9;
+  box-shadow: 5px 10px#1dd9d9;
+  padding: 2rem;
+}
+
+.shipping-item {
   width: 100%;
   min-width: 400px;
   max-width: 450px;
@@ -134,8 +180,205 @@ app-top-bar h1 {
   padding: 16px 32px;
   margin-bottom: 8px;
   border-radius: 2px;
-  background-color: #EEEEEE;
+  background-color: #f7f7f7;
 }
+
+.circle-yellow {
+  background-color: #fafa0b;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-yellow-small {
+  background-color: #fafa0b;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-blue {
+  background-color:#1dd9d9;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-blue-small {
+  background-color:#1dd9d9;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-pink {
+  background-color: #f90ff9;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-pink-small {
+  background-color: #f90ff9;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  border: 2px solid black;
+}
+
+.circle-yellow-selected {
+  background-color: #fafa0b;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 6px solid black;
+}
+
+.circle-blue-selected {
+  background-color:#1dd9d9;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 6px solid black;
+}
+
+.circle-pink-selected {
+  background-color: #f90ff9;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  border: 6px solid black;
+}
+
+.circle-size {
+  color: white;
+  text-align: center;
+  background-color:black;
+  height: fit-content;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid black;
+}
+
+.circle-size-selected {
+  color: black;
+  text-align: center;
+  background-color:#fafa0b;
+  height: fit-content;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border: 2px solid black;
+}
+
+.circle-size-selected-small {
+  color: white;
+  text-align: center;
+  background-color:black;
+  height: fit-content;
+  padding: 3px;
+  padding-left: 7px;
+  padding-right: 7px;
+  border: 2px solid black;
+  font-size: 12px;
+}
+
+.controls {
+  color: black;
+  text-align: center;
+  height: fit-content;
+  padding: 10px;
+
+}
+
+/* GENERAL */
+
+@font-face {
+  font-family: dosis;
+  src: url(assets/fonts/Dosis-Bold.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: dosis-bold;
+  src: url(assets/fonts/Dosis-Bold.ttf) format("opentype");
+}
+
+.mg-1rem {
+  margin: 1rem;
+}
+
+.mg-top-1rem {
+  margin-top: 1rem;
+}
+
+.mg-2rem {
+  margin: 2rem;
+}
+
+.mg-top-2rem {
+  margin-top: 2rem;
+}
+
+.mg-bottom-2rem {
+  margin-bottom: 2rem;
+}
+
+.mg-top-4rem {
+  margin-top: 4rem;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.input {
+  border: 2px solid black;
+  font-size: 16px;
+  border-radius: 0px;
+  width:400px;
+}
+
+.display-flex-start {
+  display: flex;
+  justify-content: flex-start;
+  column-gap: 2rem;
+}
+
+.display-flex-end {
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 2rem;
+}
+
+.display-flex-center {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.width-100 {
+  width: 100%;
+}
+
+.mg-0 {
+  margin: 0 !important;
+}
+
 
 
 /*

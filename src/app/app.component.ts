@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppStateService } from './_services/app-state.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(public appState: AppStateService) {
+    appState.isAuthenticated = localStorage.getItem('currentUser') !== null;
+  }
 }
 
 

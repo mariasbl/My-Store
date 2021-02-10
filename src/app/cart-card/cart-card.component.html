@@ -1,0 +1,37 @@
+<div class="display-flex-start">
+    <div class="cart-item mg-2rem width-100">
+
+      <div class="display-flex-start">
+        <div>
+          <img src="{{ thumbnailImage }}" class="responsive width-350px" />
+        </div>
+
+        <div class="width-100">
+          <h3 class="title">{{ item.product.name | uppercase }}</h3>
+          <h3 class="mg-top-2rem">{{ item.product.price | currency:'EUR':true }}</h3>
+          <hr />
+          <div class="display-flex-start">
+            <p>COLOR</p>
+            <p *ngIf="item.color === 1" class="circle-yellow-small"></p>
+            <p *ngIf="item.color === 2" class="circle-blue-small"></p>
+            <p *ngIf="item.color === 3" class="circle-pink-small"></p>
+          </div>
+
+          <div class="display-flex-start">
+            <p>SIZE</p>
+            <p *ngIf="item.size === 1" class="circle-size-selected-small">S</p>
+            <p *ngIf="item.size === 2" class="circle-size-selected-small">M</p>
+            <p *ngIf="item.size === 3" class="circle-size-selected-small">L</p>
+          </div>
+
+          <div class="display-flex-start">
+            <p>QUANTITY</p>
+            <p>{{ item.quantity }}</p>
+          </div>
+
+          <button class="button fancy-button-yellow mg-top-1rem" (click)="removeItem(item)"><i class="material-icons">delete</i>REMOVE</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

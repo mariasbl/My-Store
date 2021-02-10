@@ -1,0 +1,15 @@
+.title {
+    border: 2px solid#f90ff9;
+    padding: 10px;
+    box-shadow: 5px 10px #f90ff9;
+    color: #f90ff9;
+    font-weight: bold;
+}
+
+hr {
+    border: 1px solid black;
+}
+
+.width-350px {
+    width: 350px;
+}

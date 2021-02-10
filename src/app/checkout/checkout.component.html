@@ -1,0 +1,72 @@
+<h2>CHECKOUT</h2>
+
+<div class="display-flex-center">
+
+    <div class="container-checkout">
+
+        <h2 class="mg-0">BILL</h2>
+
+        <div *ngFor="let item of items">
+
+            <div class="display-flex-start mg-2rem">
+                <span>{{ item.quantity }}</span>
+                <span>X</span>
+                <span>{{ item.product.name | uppercase }}</span>
+                <span>{{ item.product.price | calculateprice: item.quantity }}</span>
+            </div>
+
+        </div>
+
+        <div class="display-flex-start mg-2rem">
+            <span>TOTAL</span>
+            <span>{{ 1 | calculatetotal: items }}</span>
+        </div>
+
+        <h2 class="mg-0">INSERT YOUR DATA</h2>
+
+        <div class="display-flex-center mg-2rem">
+            <form [formGroup]="buyform">
+
+                <div>
+                    <label for="address">
+                        Address
+                    </label>
+                    <input class="input" id="address" type="text" formControlName="address" />
+                </div>
+
+                <div>
+                    <label for="phone">
+                        Phone
+                    </label>
+                    <input class="input" id="phone" type="text" formControlName="phone" />
+                </div>
+
+                <div>
+                    <label for="postalcode">
+                        Postal Code
+                    </label>
+                    <input class="input" id="postalcode" type="text" formControlName="postalcode" />
+                </div>
+
+                <div>
+                    <label for="postalcode">
+                        Shipping
+                    </label>
+                    <form>
+                        <div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+                            <input type="radio" />
+                            <span>{{ shipping.type }}</span>
+                            <span>{{ shipping.price | currency }}</span>
+                        </div>
+                    </form>
+                </div>
+
+                <button class="button" type="submit" class="button fancy-button-yellow mg-top-1rem"><i
+                        class="material-icons">login</i>SUBMIT</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>

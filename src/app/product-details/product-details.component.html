@@ -1,9 +1,52 @@
-<h2>Product Details</h2>
+<h2>{{ title | uppercase }}</h2>
 
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
+<div class="display-flex-start">
 
-  <button (click)="addToCart(product)">Buy</button>
+  <div class="mg-2rem">
+    <img src="{{ thumbnailImage }}" class="responsive" />
+  </div>
+
+  <div class="mg-2rem" *ngIf="product">
+    <h2 class="h2-product-title">{{ product.name | uppercase }}</h2>
+    <h1 class="price">{{ product.price | currency:'EUR':true }}</h1>
+    <p class="mg-bottom-2rem">{{ product.description }}</p>
+
+    <hr />
+
+    <h1>Color</h1>
+    <div class="display-flex-start">
+      <div *ngIf="color !== 1" class="circle-yellow pointer" (click)="selectColor(1)"></div>
+      <div *ngIf="color === 1" class="circle-yellow-selected pointer" (click)="selectColor(1)"></div>
+      
+      <div *ngIf="color !== 2" class="circle-blue pointer" (click)="selectColor(2)"></div>
+      <div *ngIf="color === 2" class="circle-blue-selected pointer" (click)="selectColor(2)"></div>
+      
+      <div *ngIf="color !== 3" class="circle-pink pointer" (click)="selectColor(3)"></div>
+      <div *ngIf="color === 3" class="circle-pink-selected pointer" (click)="selectColor(3)"></div>
+    </div>
+
+    <h1>Size</h1>
+    <div class="display-flex-start">
+      <div *ngIf="size !== 1" class="circle-size pointer" (click)="selectSize(1)">S</div>
+      <div *ngIf="size === 1" class="circle-size-selected pointer" (click)="selectSize(1)">S</div>
+      
+      <div *ngIf="size !== 2" class="circle-size pointer" (click)="selectSize(2)">M</div>
+      <div *ngIf="size === 2" class="circle-size-selected pointer" (click)="selectSize(2)">M</div>
+      
+      <div *ngIf="size !== 3" class="circle-size pointer" (click)="selectSize(3)">L</div>
+      <div *ngIf="size === 3" class="circle-size-selected pointer" (click)="selectSize(3)">L</div>
+    </div>
+
+    <h1>Quantity</h1>
+    <div class="display-flex-start">
+      <div class="controls pointer" (click)="up()">+</div>
+      <div class="circle-size">{{count}}</div>
+      <div class="controls pointer" (click)="down()">-</div>
+    </div>
+
+    <button class="button fancy-button-yellow mg-top-2rem" (click)="addToCart(product, color, size)"><i
+        class="material-icons">shopping_cart</i>ADD TO CART</button>
+
+  </div>
+
 </div>

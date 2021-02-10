@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { products } from '../products';
-import { CartService } from '../cart.service';
+import { CartService } from '../_services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,11 +12,18 @@ import { CartService } from '../cart.service';
 export class ProductDetailsComponent implements OnInit {
   
   product;
+  title = "Product Details";
+  thumbnailImage = "assets/images/template.png";
+  count = 0;
+  color = 0;
+  size = 0;
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
-  ) { }
+    private cartService: CartService,
+  ) {
+
+  }
 
   ngOnInit() {
     const routeParams = this.route.snapshot.paramMap;
@@ -26,9 +33,26 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
-  addToCart(product) {
-    this.cartService.addToCart(product);
+  addToCart(product, color, size) {
+    this.cartService.addToCart(product, color, size, this.count);
     window.alert('Your product has been added to the cart');
+  }
+
+  up() {
+    this.count++;
+  }
+
+  down() {
+    if (this.count > 0)
+      this.count--;
+  }
+
+  selectColor(color) {
+    this.color = color;
+  }
+
+  selectSize(size) {
+    this.size = size;
   }
 
 }

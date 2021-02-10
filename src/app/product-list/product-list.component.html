@@ -1,29 +1,21 @@
-<h2>Products</h2>
 
-<div *ngFor="let product of products">
+<h2>{{ title | uppercase }}</h2>
 
-  <h3>
-    <a [title] ="product.name + ' details'"
-    [routerLink]="['/products', product.id]">
-      {{ product.name }}
-    </a>
-  </h3>
+<div class="wrapper">
 
-  <p *ngIf="product.description">
-    Description: {{ product.description}}
-  </p>
+  <div *ngFor="let product of products">
 
-  <button (click)="share()"> 
-    Share
-  </button>
-
-  <app-product-alerts
+   <app-product-thumb
     [product]="product"
-    (notify)="onNotify()">
-  </app-product-alerts>
+   ></app-product-thumb>
+    <!--      <button class="fancy-button-yellow" (click)="share()">
+     D E T A I L S
+    </button>-->
 
+    <!--    <app-product-alerts [product]="product" (notify)="onNotify()">
+    </app-product-alerts>-->
+  </div>
 </div>
-
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

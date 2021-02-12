@@ -1,42 +1,51 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  items = [{
-    product:{
-      id: 1,
-      name: 'T-shirt XL',
-      price: 799,
-      description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-    },
-    color: 1,
-    size: 1,
-    quantity: 1
-  }];
+  items = JSON.parse(localStorage.getItem('cart'));
+
+  public countCart = new Subject();
 
   constructor(
     private http: HttpClient
   ) { }
 
   addToCart(product, color, size, quantity) {
-    this.items.push({product, color, size, quantity});
+
+    if (this.items === null) {
+      this.items = [];
+      this.items.push({product, color, size, quantity});
+    } else 
+      this.items.push({product, color, size, quantity});
+
+    localStorage.setItem('cart', JSON.stringify(this.items));
+  }
+
+  getNelems () {
+    if (this.items === null) return 0;
+    return this.items.length;
   }
 
   getItems() {
+
+    if (localStorage.getItem('cart') === null) return [];
+
     return this.items;
   }
 
   removeItem(item) {
     const index = this.items.findIndex( p => p.product.id === item.id);
     this.items.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(this.items));
   }
 
   clearCart() {
     this.items = [];
-    return this.items;
+    localStorage.removeItem('cart');
   }
 
   getShippingPrices() {

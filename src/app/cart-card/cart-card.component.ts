@@ -8,11 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CartCardComponent implements OnInit {
   thumbnailImage = "assets/images/template.png";
   @Input() item;
-  @Input() removeItem;
+  @Input() setItemSelected;
+  @Input() open;
   
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onClick(item): void {
+    this.setItemSelected(item);
+    this.open();
   }
 
 }

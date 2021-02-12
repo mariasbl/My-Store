@@ -6,7 +6,8 @@
 
   <app-cart-card
     [item]="item"
-    [removeItem]="removeItem.bind(this)"
+    [setItemSelected]="setItemSelected.bind(this)"
+    [open]="open()"
   ></app-cart-card>
  
 </div>
@@ -15,28 +16,12 @@
   <a class="button fancy-button-yellow mg-1rem"(click)="checkRouter()"><i
     class="material-icons">navigate_next</i>NEXT STEP</a>
 </div>
-<!--
-<p>
-  <a routerLink="/shipping">Shipping Prices</a>
-</p>
 
+<app-popup
+  [show]="popup"
+  [type]="type"
+  (removeItem)="removeItem()"
+  (closeEvent)="close()"
+></app-popup>
 
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="address">
-      Address
-    </label>
-    <input id="address" type="text" formControlName="address">
-  </div>
-
-  <button class="button" type="submit">Purchase</button>
-
-</form>-->
+<app-loading [show]="loading"></app-loading>

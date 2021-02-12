@@ -20,6 +20,9 @@ import { CartCardComponent } from './cart-card/cart-card.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CaculatepricePipe } from './_pipe/calculateprice.pipe';
 import { CaculatetotalPipe } from './_pipe/calculatetotal.pipe';
+import { PurchasesComponent } from './purchases/purchases.component';
+import { LoadingComponent } from './loading/loading.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   imports: [
@@ -32,7 +35,8 @@ import { CaculatetotalPipe } from './_pipe/calculatetotal.pipe';
       { path: 'products/:productId', component: ProductDetailsComponent },
       { path: 'cart', component: CartComponent},
       { path: 'shipping', component: ShippingComponent},
-      { path: 'checkout', component: CheckoutComponent}
+      { path: 'checkout', component: CheckoutComponent},
+      { path: 'purchases', component: PurchasesComponent}
     ])
   ],
   declarations: [
@@ -48,7 +52,10 @@ import { CaculatetotalPipe } from './_pipe/calculatetotal.pipe';
     CartCardComponent,
     CheckoutComponent,
     CaculatepricePipe,
-    CaculatetotalPipe
+    CaculatetotalPipe,
+    PurchasesComponent,
+    LoadingComponent,
+    PopupComponent
   ],
   bootstrap: [
     AppComponent

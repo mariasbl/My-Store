@@ -1,0 +1,57 @@
+<h2>PURCHASES</h2>
+
+<h3 *ngIf="purchases.length === 0" class="text-align-center">YOU HAVEN'T BOUGHT ANYTHING YET.</h3>
+
+<div *ngFor="let purchase of purchases; let i = index">
+    <div class="container-purchase">
+
+        <h1>#{{ i + 1 }}</h1>
+
+        <div>
+            <h2>PRODUCTS</h2>
+            <div class="display-flex-start mg-2rem" *ngFor="let item of purchase.items">
+
+                <span>{{ item.quantity }}</span>
+                <span class="pink">X</span>
+                <span>{{ item.product.name | uppercase }}</span>
+
+                <span *ngIf="item.color === 1" class="circle-yellow-small"></span>
+                <span *ngIf="item.color === 2" class="circle-blue-small"></span>
+                <span *ngIf="item.color === 3" class="circle-pink-small"></span>
+
+                <span *ngIf="item.size === 1" class="circle-size-selected-small">S</span>
+                <span *ngIf="item.size === 2" class="circle-size-selected-small">M</span>
+                <span *ngIf="item.size === 3" class="circle-size-selected-small">L</span>
+
+                <span>{{ item.product.price | calculateprice: item.quantity }}</span>
+
+            </div>
+        </div>
+
+        <div>
+            <h2>DELIVERY DATA</h2>
+
+            <div class="display-flex-start mg-2rem">
+                <span class="container-data">ADDRESS</span>
+                <span class="container-data-info">{{ purchase.data.address | uppercase }}</span>
+            </div>
+
+            <div class="display-flex-start mg-2rem">
+                <span class="container-data">POSTAL CODE</span>
+                <span class="container-data-info">{{ purchase.data.postalcode }}</span>
+            </div>
+
+            <div class="display-flex-start mg-2rem">
+                <span class="container-data">PHONE</span>
+                <span class="container-data-info">{{ purchase.data.phone }}</span>
+            </div>
+
+            <div class="display-flex-start mg-2rem">
+                <span class="container-data">SHIPPING</span>
+                <span class="container-data-info">{{ purchase.data.shipping | uppercase }}</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

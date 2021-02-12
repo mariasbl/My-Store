@@ -1,0 +1,26 @@
+<div [ngClass]="show ? 'modal display-block' : 'modal display-none'" (click)="close()">
+    <div class="modal-main">
+
+        <div *ngIf="type === 'warning'">
+            <div class="display-flex-start padding-1rem">
+                <i class="material-icons pink">shopping_cart</i>
+                <span class="pink">YOUR PRODUCT HAS BEEN ADDED TO THE CART</span>
+            </div>
+        </div>
+
+        <div *ngIf="type === 'confirm'">
+            <div class="display-flex-start padding-1rem">
+                <i class="material-icons pink">quiz</i>
+                <span class="pink">REMOVE THIS ITEM FROM CART? </span>
+            </div>
+
+            <div class="display-flex-space-around padding-1rem">
+                <button class="button fancy-button-yellow" (click)="close()"><i class="material-icons">cancel</i> C A N
+                    C E L</button>
+                <button class="button fancy-button-yellow" (click)="remove()"><i class="material-icons">delete</i> R E M
+                    O V E</button>
+            </div>
+        </div>
+
+    </div>
+</div>

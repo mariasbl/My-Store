@@ -1,0 +1,20 @@
+.container-purchase {
+    border: 2px solid#1dd9d9;
+    box-shadow: 5px 10px#1dd9d9;
+    margin: 2rem;
+}
+
+.container-data {
+    border: 2px solid#1dd9d9;
+    box-shadow: 5px 10px#1dd9d9;
+    color: #1dd9d9;
+    padding: 0.5rem;
+}
+
+.container-data-info {
+    padding: 0.5rem;
+}
+
+h1 {
+    margin-left: 2rem;
+}

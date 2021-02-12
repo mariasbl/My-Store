@@ -171,16 +171,11 @@ app-product-list hr {
 }
 
 .shipping-item {
-  width: 100%;
-  min-width: 400px;
-  max-width: 450px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 32px;
-  margin-bottom: 8px;
-  border-radius: 2px;
-  background-color: #f7f7f7;
+  border: 2px solid#1dd9d9;
+  box-shadow: 5px 10px#1dd9d9;
+  margin: 2rem;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
 }
 
 .circle-yellow {
@@ -297,6 +292,8 @@ app-product-list hr {
 
 }
 
+
+
 /* GENERAL */
 
 @font-face {
@@ -367,6 +364,11 @@ app-product-list hr {
   column-gap: 2rem;
 }
 
+.display-flex-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+
 .text-align-center {
   text-align: center;
 }
@@ -377,6 +379,22 @@ app-product-list hr {
 
 .mg-0 {
   margin: 0 !important;
+}
+
+.pink {
+  color: #f90ff9;
+}
+
+.blue {
+  color: #1dd9d9;
+}
+
+.white-space {
+  margin-left: 5px;
+}
+
+.padding-1rem {
+  padding: 1rem;
 }
 
 

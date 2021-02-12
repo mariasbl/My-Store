@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { products } from '../products';
 import { CartService } from '../_services/cart.service';
@@ -17,6 +17,9 @@ export class ProductDetailsComponent implements OnInit {
   count = 0;
   color = 0;
   size = 0;
+  popup = false;
+  loading = false;
+  type = 'warning';
 
   constructor(
     private route: ActivatedRoute,
@@ -30,12 +33,18 @@ export class ProductDetailsComponent implements OnInit {
     const productIdFromRoute = Number(routeParams.get('productId'));
 
     this.product = products.find(product => product.id === productIdFromRoute);
+  }
 
+  close() {
+    this.popup = false;
   }
 
   addToCart(product, color, size) {
     this.cartService.addToCart(product, color, size, this.count);
-    window.alert('Your product has been added to the cart');
+
+    this.loading = true;
+    setTimeout(() => { this.loading = false }, 600);
+    setTimeout(() => {  this.popup = true }, 600);
   }
 
   up() {

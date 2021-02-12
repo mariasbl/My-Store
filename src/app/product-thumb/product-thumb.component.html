@@ -2,7 +2,8 @@
     <img src="{{ thumbnailImage }}" 
         class="responsive pointer" 
         [title]="product.name"
-        [routerLink]="['/products', product.id]" />
+        (click)="selectProduct(product.id)"
+    />
     <hr>
     <h3>
         {{ product.name | uppercase }}

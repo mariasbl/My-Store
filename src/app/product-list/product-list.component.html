@@ -7,15 +7,13 @@
 
    <app-product-thumb
     [product]="product"
+    (selectProductEvent)="selectProduct($event)"
    ></app-product-thumb>
-    <!--      <button class="fancy-button-yellow" (click)="share()">
-     D E T A I L S
-    </button>-->
 
-    <!--    <app-product-alerts [product]="product" (notify)="onNotify()">
-    </app-product-alerts>-->
   </div>
 </div>
+
+<app-loading [show]="loading"></app-loading>
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

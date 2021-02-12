@@ -50,3 +50,11 @@
   </div>
 
 </div>
+
+<app-popup
+  [show]="popup"
+  [type]="type"
+  (closeEvent)="close()"
+></app-popup>
+
+<app-loading [show]="loading"></app-loading>

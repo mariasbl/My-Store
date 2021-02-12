@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { products } from '../products';
+import { AppStateService } from '../_services/app-state.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,19 +12,23 @@ import { products } from '../products';
 export class ProductListComponent {
   products = products;
   title = "Products"
+  loading = false;
 
   constructor(
+    private appStateService: AppStateService,
     private router: Router
   ) {
     
   }
 
-  share() {
-    window.alert('The product has been shared!');
+  ngOnInit(): void {
+    this.appStateService.setUrl('/');
   }
 
-  onNotify() {
-    window.alert('You will be notified when the product goes on sale');
+  selectProduct(product) {
+    this.loading = true;
+    setTimeout(() => { this.loading = false }, 800);
+    setTimeout(() => { this.router.navigate(['/products/' + product]) }, 800);
   }
 
 }

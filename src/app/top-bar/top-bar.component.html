@@ -1,15 +1,21 @@
-<a [routerLink]="['/']">
+<a (click)="toStore()">
   <h2>M Y S T O R E</h2>
 </a>
 
 <div>
-  <a [routerLink]="['/cart']" class="button fancy-button-yellow mg-1rem"><i class="material-icons">shopping_cart</i>C H
-    E C K O U T</a>
+  <span></span>
+  <a (click)="toCart()" class="button fancy-button-yellow mg-1rem"><i class="material-icons">shopping_cart</i>
+    C H E C K O U T <span class="pink white-space">( {{ getNelems() }} )</span></a>
+  <button *ngIf="isAuthenticated" class="button" type="submit" class="button fancy-button mg-1rem" (click)="toPurchases()"><i
+      class="material-icons">inventory</i>P U R C H A S E S</button>
   <button *ngIf="isAuthenticated" class="button" type="submit" class="button fancy-button mg-1rem" (click)="logout()"><i
       class="material-icons">logout</i>L O G O U T</button>
-  <button *ngIf="!isAuthenticated" class="button" type="submit" class="button fancy-button mg-1rem" (click)="toLogin()"><i
-      class="material-icons">login</i>L O G I N</button>
+  <button *ngIf="!isAuthenticated" class="button" type="submit" class="button fancy-button mg-1rem"
+    (click)="toLogin()"><i class="material-icons">login</i>L O G I N</button>
+    
+  <app-loading [show]="loading"></app-loading>
 </div>
+
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.
